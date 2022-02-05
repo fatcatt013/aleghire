@@ -1,13 +1,81 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html, #root, .App, body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+    font-family: 'Open Sans';
+    font-size: 18px;
+}
+
+body {
+    display: flex;
+    background-color: #cc8c54;
+}
+
+.App {
+    display: flex;
+    flex-direction: row;;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.navigation-container {
+    background-color: #7c142c;
+    height: 100%;
+    width: 15vw;
+}
+
+.nav-profile {
+    margin: 0;
+}
+
+.mini-pfp {
+    width: 3rem;
+    height: 3rem;
+}
+
+.profile-info {
+    display: grid;
+    grid-template: 15% 1fr 1fr / 1fr 1fr;
+    width: 25rem;
+    height: 30rem;
+    padding: 2rem 4rem;
+    background-image: linear-gradient(to bottom right, #542b29, #472726);
+    color: #f2dca0;
+    margin-left: 5rem;
+    margin-top: 2rem;
+    border: 8px double black;
+    border-radius: 15px;
+}
+
+.profile-info h2 {
+    grid-area: 1 / 1 / span 1 / span 1;
+}
+
+.profile-info-image {
+    grid-area: 2 / 1 / span 1 / span 1;
+    width: 10rem;
+    height: 13rem;
+    margin-right: 1rem;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 2px solid #f2dca0;
+}
+
+.profile-info-paragraphs {
+    grid-area: 2 / 2 / span 1 / span 1;
+}
+
+
+.profile-info-stats {
+    grid-area: 3 / 1 / span 1 / span 1;
+}
+
+
+.profile-info-paragraphs p, .profile-info-stats p {
+    margin-top: 0;
 }
