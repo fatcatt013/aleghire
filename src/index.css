@@ -11,26 +11,52 @@ html {
 
 body {
     display: flex;
-    background-color: #cc8c54;
+
 }
 
 .App {
     display: flex;
-    flex-direction: row;;
+    flex-direction: row;
+    background-image: linear-gradient(to bottom, #cc8c54, #f9c98e);
 }
 
-ul {
+.nav-ul {
     list-style-type: none;
+    padding-inline-start: 0;
+    height: 100vh;
+    margin-top: 0;
+    position: absolute;
+    left: 0px;
+    top: 0px;
 }
 
-.navigation-container {
-    background-color: #7c142c;
+.nav-container {
     height: 100%;
     width: 15vw;
+    color: #f2dca0;
+    margin-right: 14rem;
 }
 
 .nav-profile {
-    margin: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    padding: 0.8rem;
+    font-size: 0.84rem;
+    background-color: #7c142c;
+    border: 4px solid #542b29;
+    border-radius: 0px 0px 10px 0px;
+    border-left: none;
+    border-top: none;
+    min-width: 250px;
+    cursor: pointer;
+
+    transition: background-color 0.4s ease-out 100ms
+}
+
+.nav-profile img {
+    border: 1px solid black;
+    margin-right: 0.4rem;
 }
 
 .mini-pfp {
@@ -38,16 +64,48 @@ ul {
     height: 3rem;
 }
 
+.nav-items {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.4rem;
+    height: 70vh;
+    text-transform: uppercase;
+    justify-content: space-between;
+}
+
+.nav-items li {
+    width: 100%;
+    padding: 0.5rem 0px 0.5rem 2rem;
+    vertical-align: middle;
+    border: 4px solid #542b29;
+    border-left: none;
+    background-color: #7a152d;
+    border-radius: 0px 10px 10px 0px;
+    min-width: 200px;
+    cursor: pointer;
+
+    transition: background-color 0.3s ease-out 100ms;
+}
+
+
+.nav-profile:hover, .nav-items li:hover {
+    background-color: #bc2a4d;
+}
+
+
+
+
 .profile-info {
     display: grid;
     grid-template: 15% 1fr 1fr / 1fr 1fr;
     width: 25rem;
     height: 30rem;
     padding: 2rem 4rem;
-    background-image: linear-gradient(to bottom right, #542b29, #472726);
+    background-image: linear-gradient(to bottom right, #542b29, #b11b17);
     color: #f2dca0;
-    margin-left: 5rem;
-    margin-top: 2rem;
+    margin-top: 5rem;
     border: 8px double black;
     border-radius: 15px;
 }
