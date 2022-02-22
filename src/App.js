@@ -30,7 +30,6 @@ function App() {
                       <Route path='/mailbox' element={<Mailbox/>} />
                       <Route path='/settings' element={<Settings/>} />
                   </Routes>
-
             </div>
       </Router>
   );

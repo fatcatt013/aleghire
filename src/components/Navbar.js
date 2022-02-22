@@ -9,17 +9,11 @@ import { MdLocationCity, MdGroups, MdOutlineMail, MdSettings,
 const Navbar = () => {
 
     const navigate = useNavigate();
-    const paths = ['profile', 'map', 'talent-tree', 'city', 'arena',
-                   'dungeon', 'guild', 'religion', 'mailbox', 'settings'];
-
-    const handleNavigate = (place) => {
-    }
-
 
     return (
         <div className='nav-container'>
             <ul className='nav-ul'>
-                <li id='nav-li-1' onClick={() => navigate('/profile')}>
+                <li onClick={() => navigate('/profile')}>
                     <div className='nav-profile'>
                         <img src="https://i.pinimg.com/564x/0e/e6/05/0ee6058a98ee88e7c59f64ea4d9592a8.jpg"
                              alt="" className='mini-pfp'/>
@@ -30,15 +24,15 @@ const Navbar = () => {
                     </div>
                 </li>
                 <div className='nav-items'>
-                    <li id='nav-li-2' onClick={() => navigate('/map')}><GiTreasureMap/> Map</li>
-                    <li id='nav-li-3' onClick={() => navigate('/talent-tree')}><FaSitemap/> Talent Tree</li>
-                    <li id='nav-li-4' onClick={() => navigate('/city')}><MdLocationCity/> City</li>
-                    <li id='nav-li-5' onClick={() => navigate('/arena')}><GiSwordClash/> Arena</li>
-                    <li id='nav-li-6' onClick={() => navigate('/dungeon')}><FaDungeon/> Dungeon</li>
-                    <li id='nav-li-7' onClick={() => navigate('/guild')}><MdGroups/> Guild</li>
-                    <li id='nav-li-8' onClick={() => navigate('/religion')}><FaCross/> Religion</li>
-                    <li id='nav-li-9' onClick={() => navigate('/mailbox')}><MdOutlineMail/> Mailbox</li>
-                    <li id='nav-li-10' onClick={() => navigate('/settings')}><MdSettings/> Settings</li>
+                    <li onClick={() => navigate('/map')}><GiTreasureMap/> Map</li>
+                    <li onClick={() => navigate('/talent-tree')}><FaSitemap/> Talent tree</li>
+                    <li onClick={() => navigate('/city')}><MdLocationCity/> City</li>
+                    <li onClick={() => navigate('/arena')}><GiSwordClash/> Arena</li>
+                    <li onClick={() => navigate('/dungeon')}><FaDungeon/> Dungeon</li>
+                    <li onClick={() => navigate('/guild')}><MdGroups/> Guild</li>
+                    <li onClick={() => navigate('/religion')}><FaCross/> Religion</li>
+                    <li onClick={() => navigate('/mailbox')}><MdOutlineMail/> Mailbox</li>
+                    <li onClick={() => navigate('/settings')}><MdSettings/> Settings</li>
                 </div>
             </ul>
         </div>
