@@ -57,12 +57,16 @@ body {
 .nav-profile img {
     border: 1px solid black;
     margin-right: 0.4rem;
-}
-
-.mini-pfp {
     width: 3rem;
     height: 3rem;
 }
+
+.nav-profile-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 
 .nav-items {
     margin-top: 3rem;
