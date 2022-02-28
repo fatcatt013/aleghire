@@ -21,8 +21,191 @@ body {
 .App {
     display: flex;
     flex-direction: row;
-    background-image: linear-gradient(to bottom, #cc8c54, #f9c98e);
+    background-image: linear-gradient(to bottom, #c6742d, #f9c98e);
 }
+
+button {
+    cursor: pointer;
+}
+
+/*
+LOGIN AND REGISTER PAGE
+ */
+
+.register-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to bottom, #c6742d, #f9c98e);
+}
+
+.register-form {
+    box-sizing: border-box;
+    max-width: 430px;
+    width: 30%;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+    align-items: center;
+    background-image: linear-gradient(to bottom right, #542b29, #b11b17);
+    color: #f2dca0;
+    border: 8px double black;
+    border-radius: 15px;
+}
+
+.register-form h1 {
+    margin-bottom: 3rem;
+}
+
+.register-inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 45%;
+    width: 100%;
+    margin-bottom: 3rem;
+}
+
+.register-form input {
+    width: 70%;
+    height: 2.5rem;
+    font-size: 1rem;
+    background-color: #f2dca0;
+    border: 2px solid black;
+    padding-left: 0.4rem;
+}
+
+.register-button {
+    width: 70%;
+    height: 2.5rem;
+    font-size: 1rem;
+    background-color: #dec88f;
+    transition: background-color 0.4s ease-out 100ms;
+}
+
+.register-button:hover {
+    background-color: #9f9163;
+}
+
+.login-inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 20.8%;
+    width: 100%;
+    margin-bottom: 10.8rem;
+}
+
+/*
+CHARACTER CREATING PROCESS
+ */
+
+.create-hero-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to bottom, #c6742d, #f9c98e);
+}
+
+.create-hero-content {
+    background-image: linear-gradient(to bottom right, #542b29, #b11b17);
+    color: #f2dca0;
+    border: 8px double black;
+    border-radius: 15px;
+    max-width: 600px;
+    width: 50vw;
+    height: 720px;
+}
+
+.create-hero-content h3{
+    margin-left: 0.5rem;
+}
+
+.create-hero-content input {
+    width: 70%;
+    height: 1.5rem;
+    font-size: 1rem;
+    background-color: #f2dca0;
+    border: 2px solid black;
+    padding-left: 0.4rem;
+    margin-left: 0.5rem;
+}
+
+.class-list, .religion-list {
+    list-style-type: none;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    padding-inline-start: 0px;
+}
+
+.create-hero-content li {
+    font-size: 1.2rem;
+    width: 15%;
+    border: 2px solid #ae9f77;
+    padding: 0.2rem;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.4s ease-out 100ms;
+    transition: color 0.4s ease-out 100ms;
+}
+
+.class-list li:hover, .class-list-li-selected, .religion-list li:hover, .religion-list-li-selected {
+    background-color: #f2dca0;
+    color: #b11b17;
+}
+
+.pfp-list {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.pfp-unselected{
+    width: 25%;
+    border: 4px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+    opacity: 70%;
+    transition: opacity 0.4s ease-out 100ms;
+}
+
+.pfp-unselected:hover{
+    opacity: 100%;
+
+}
+
+.pfp-selected {
+    width: 25%;
+    border: 4px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+    opacity: 100%;
+    border: 4px solid #dec88f;
+}
+
+.create-hero-button {
+    width: 40%;
+    height: 2.5rem;
+    font-size: 1rem;
+    background-color: #dec88f;
+    transition: background-color 0.4s ease-out 100ms;
+    margin-left: 30%;
+    margin-top: 3rem;
+}
+
+.create-hero-button:hover {
+    background-color: #9f9163;
+}
+
 
 /*
 NAVIGATION

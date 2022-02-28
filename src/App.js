@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ProfileInfo from './pages/ProfileInfo';
 import Map from './pages/Map';
 import Navbar from "./components/Navbar";
@@ -11,28 +11,60 @@ import Guild from "./pages/Guild";
 import Religion from "./pages/Religion";
 import Mailbox from "./pages/Mailbox";
 import Settings from "./pages/Settings";
+import Register from "./pages/Register";
+import CreateHero from "./pages/CreateHero";
 
 
 function App() {
-  return (
-      <Router>
+
+    const [registered, setRegistered] = useState(false);
+    const [createCharacter, setCreateCharacter] = useState(true);
+    const [userId, setUserId] = useState(null);
+
+    const handleAuth = (newAcc, id) => {
+        //newAcc (boolean) = is creating a new account?
+        console.log("handleAuth() id: " + id);
+        setRegistered(true);
+        setUserId(id);
+        console.log("State userId: " + userId);
+        setCreateCharacter(newAcc);
+    }
+
+    if (!registered) {
+        return (
+            <Register handleAuth={handleAuth}/>
+        )
+    }
+
+    if (createCharacter) {
+        //CHARACTER CREATION PROCESS
+        return (
+            <CreateHero id={userId}/>
+        )
+    }
+
+
+    return (
+        <Router>
             <div className="App">
-                  <Navbar/>
-                  <Routes>
-                      <Route path='/profile' element={<ProfileInfo/>} />
-                      <Route path='/map' element={<Map/>} />
-                      <Route path='/talent-tree' element={<TalentTree/>} />
-                      <Route path='/city' element={<City/>} />
-                      <Route path='/arena' element={<Arena/>} />
-                      <Route path='/dungeon' element={<Dungeon/>} />
-                      <Route path='/guild' element={<Guild/>} />
-                      <Route path='/religion' element={<Religion/>} />
-                      <Route path='/mailbox' element={<Mailbox/>} />
-                      <Route path='/settings' element={<Settings/>} />
-                  </Routes>
+                <Navbar/>
+                <Routes>
+                    <Route path='/profile' element={<ProfileInfo/>} />
+                    <Route path='/map' element={<Map/>} />
+                    <Route path='/talent-tree' element={<TalentTree/>} />
+                    <Route path='/city' element={<City/>} />
+                    <Route path='/arena' element={<Arena/>} />
+                    <Route path='/dungeon' element={<Dungeon/>} />
+                    <Route path='/guild' element={<Guild/>} />
+                    <Route path='/religion' element={<Religion/>} />
+                    <Route path='/mailbox' element={<Mailbox/>} />
+                    <Route path='/settings' element={<Settings/>} />
+                </Routes>
             </div>
-      </Router>
-  );
+        </Router>
+    );
+
+
 }
 
 export default App;
