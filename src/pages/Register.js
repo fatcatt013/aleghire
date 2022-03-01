@@ -73,8 +73,6 @@ const Register = (props) => {
 
     async function getId(username)  {
 
-        let id = 5;
-
         const res = await Axios.post("http://localhost:3001/getId",
             {
                 username: username
@@ -83,14 +81,11 @@ const Register = (props) => {
 
         if (res.data.result) {
             console.log("GetId() => ID " + res.data.result[0].id + " queried successfully.");
-            id = res.data.result[0].id;
         }
         if (res.data.message) {
             console.log(res.data.message);
         }
-
-        console.log("GetId() => Returning: " + id);
-        props.handleAuth(true, id);
+        props.handleAuth(true, res.data.result[0].id, res.data.result[0].password);
     }
 
     const handleLogin = (e) => {
@@ -108,8 +103,8 @@ const Register = (props) => {
                 password: pwd,
             }).then((res) => {
             if (res.data.message === 1) {
-                console.log("Successfuly logged in!");
-                props.handleAuth(false);
+                console.log("Successfully logged in!");
+                props.handleAuth(false, res.data.result[0].id, res.data.result[0].password);
             } else {
                 alert(res.data.message);
             }

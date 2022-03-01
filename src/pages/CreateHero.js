@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../index.css';
 import Axios from 'axios';
 
-const CreateHero = () => {
+const CreateHero = (props) => {
 
     const [name, setName] = useState("");
     const [selectedClass, setSelectedClass] = useState("");
@@ -55,7 +55,7 @@ const CreateHero = () => {
         Axios.post("http://localhost:3001/init-user",
             {
                 id: sessionStorage.getItem("id"),
-                name: stats.name,
+                name: name,
                 level: stats.level,
                 exp: stats.exp,
                 strength: stats.strength,
@@ -74,6 +74,7 @@ const CreateHero = () => {
         }).then(res => {
             if (res.data.message === 1) {
                 console.log("Successfuly initialized the user.");
+                props.continue();
             } else {
                 console.log("Something went wrong on the server side.");
             }

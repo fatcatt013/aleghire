@@ -20,9 +20,10 @@ function App() {
     const [registered, setRegistered] = useState(false);
     const [createCharacter, setCreateCharacter] = useState(false);
 
-    const handleAuth = (newAcc, id) => {
+    const handleAuth = (newAcc, id, pwd) => {
         //newAcc (boolean) = is creating a new account?
         sessionStorage.setItem("id", id);
+        sessionStorage.setItem("pwd", pwd);
         console.log("Session Storage ID: " + sessionStorage.getItem("id"));
         setRegistered(true);
         setCreateCharacter(newAcc);
@@ -37,7 +38,7 @@ function App() {
     if (createCharacter) {
         //CHARACTER CREATION PROCESS
         return (
-            <CreateHero/>
+            <CreateHero continue={() => setCreateCharacter(false)}/>
         )
     }
 
