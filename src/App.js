@@ -18,15 +18,13 @@ import CreateHero from "./pages/CreateHero";
 function App() {
 
     const [registered, setRegistered] = useState(false);
-    const [createCharacter, setCreateCharacter] = useState(true);
-    const [userId, setUserId] = useState(null);
+    const [createCharacter, setCreateCharacter] = useState(false);
 
     const handleAuth = (newAcc, id) => {
         //newAcc (boolean) = is creating a new account?
-        console.log("handleAuth() id: " + id);
+        sessionStorage.setItem("id", id);
+        console.log("Session Storage ID: " + sessionStorage.getItem("id"));
         setRegistered(true);
-        setUserId(id);
-        console.log("State userId: " + userId);
         setCreateCharacter(newAcc);
     }
 
@@ -39,7 +37,7 @@ function App() {
     if (createCharacter) {
         //CHARACTER CREATION PROCESS
         return (
-            <CreateHero id={userId}/>
+            <CreateHero/>
         )
     }
 

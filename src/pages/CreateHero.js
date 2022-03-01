@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../index.css';
 import Axios from 'axios';
 
-const CreateHero = ( props ) => {
+const CreateHero = () => {
 
     const [name, setName] = useState("");
     const [selectedClass, setSelectedClass] = useState("");
@@ -35,11 +35,26 @@ const CreateHero = ( props ) => {
             return;
         }
 
+
+        let region;
+        let city;
+
+        const cities = require("../ingameConst/cities");
+        const regions = require("../ingameConst/regions");
+
+        if (selectedReligion === "Satanist") {
+            city = cities.defaultStartCitySatanist;
+            region = regions.defaultStartRegionSatanist;
+        } else {
+            city = cities.defaultStartCityChristian;
+            region = regions.defaultStartRegionChristian;
+        }
+
         const stats = handleStats();
 
         Axios.post("http://localhost:3001/init-user",
             {
-                id: props.id,
+                id: sessionStorage.getItem("id"),
                 name: stats.name,
                 level: stats.level,
                 exp: stats.exp,
@@ -52,7 +67,9 @@ const CreateHero = ( props ) => {
 
                 class: selectedClass,
                 pfp: selectedPfp,
-                religion: selectedReligion
+                religion: selectedReligion,
+                region: region,
+                city: city
 
         }).then(res => {
             if (res.data.message === 1) {

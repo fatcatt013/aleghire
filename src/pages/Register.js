@@ -13,7 +13,6 @@ const Register = (props) => {
     const handleRegister = (e) => {
         e.preventDefault();
         let err = false;
-        let _id = 0;
 
         console.log("Registering with: \nemail=" + email + "\nusername=" + username +
             "\npwd=" + pwd + "\npwd2=" + confirmPwd);
@@ -66,31 +65,32 @@ const Register = (props) => {
                     } else {
                         console.log("Something went wrong on the server side.");
                     }
-                }).then(() => {
-                    setId(getId(username));
-                }).then(() => {
-                    props.handleAuth(true, id);
+                    getId(username);
                 })
             }
         )
     }
 
-    const getId = (username) => {
+    async function getId(username)  {
 
-        Axios.post("http://localhost:3001/getId",
+        let id = 5;
+
+        const res = await Axios.post("http://localhost:3001/getId",
             {
                 username: username
             }
-        ).then(res => {
-            if (res.data.result) {
-                console.log("GetId() => ID " + res.data.result[0].id + " queried successfully.");
-                return res.data.result[0].id;
-            }
-            if (res.data.message) {
-                console.log(res.data.message);
-            }
-            return -1;
-        })
+        );
+
+        if (res.data.result) {
+            console.log("GetId() => ID " + res.data.result[0].id + " queried successfully.");
+            id = res.data.result[0].id;
+        }
+        if (res.data.message) {
+            console.log(res.data.message);
+        }
+
+        console.log("GetId() => Returning: " + id);
+        props.handleAuth(true, id);
     }
 
     const handleLogin = (e) => {
