@@ -13,6 +13,7 @@ import Mailbox from "./pages/Mailbox";
 import Settings from "./pages/Settings";
 import Register from "./pages/Register";
 import CreateHero from "./pages/CreateHero";
+import Axios from "axios";
 
 
 function App() {
@@ -25,8 +26,33 @@ function App() {
         sessionStorage.setItem("id", id);
         sessionStorage.setItem("pwd", pwd);
         console.log("Session Storage ID: " + sessionStorage.getItem("id"));
+        if (! newAcc) {
+            setSessionStorage();
+        }
         setRegistered(true);
         setCreateCharacter(newAcc);
+    }
+
+    async function loadUserInfo () {
+
+        const res = await Axios.post("http://localhost:3001/get-profile-info",
+            {
+                id: sessionStorage.getItem("id"),
+            })
+        return res.data.result[0];
+
+    }
+
+    async function setSessionStorage () {
+        loadUserInfo().then((result) => {
+            sessionStorage.setItem("name", result.name);
+            sessionStorage.setItem("pfp", result.pfp);
+            sessionStorage.setItem("class", result.class);
+            sessionStorage.setItem("guild", result.guild);
+            sessionStorage.setItem("religion", result.religion);
+            sessionStorage.setItem("region", result.region);
+            sessionStorage.setItem("city", result.city);
+        })
     }
 
     if (!registered) {
@@ -38,7 +64,11 @@ function App() {
     if (createCharacter) {
         //CHARACTER CREATION PROCESS
         return (
-            <CreateHero continue={() => setCreateCharacter(false)}/>
+            <CreateHero continue={() => {
+                setCreateCharacter(false);
+                setSessionStorage();
+            }
+            }/>
         )
     }
 

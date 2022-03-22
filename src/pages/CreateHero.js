@@ -9,9 +9,55 @@ const CreateHero = (props) => {
     const [selectedPfp, setSelectedPfp] = useState(0);
     const [selectedReligion, setSelectedReligion] = useState("");
 
+    const warriorPics = [
+        "https://i.pinimg.com/564x/0e/e6/05/0ee6058a98ee88e7c59f64ea4d9592a8.jpg",
+        "https://st.depositphotos.com/1001951/1865/i/450/depositphotos_18654711-stock-photo-medieval-knight.jpg",
+        "https://i.pinimg.com/736x/dd/4c/66/dd4c66221810cb70d3612ee9320571b2.jpg"
+    ]
+
+    const archerPics = [
+        "https://i.pinimg.com/564x/ef/fc/d3/effcd37a88638672341a0115b6da0776.jpg",
+        "https://i.pinimg.com/564x/32/39/31/323931a5a34194a72610c7e339961303.jpg",
+        "https://i.pinimg.com/564x/29/af/b5/29afb523e3811118776e23e8ab015d15.jpg"
+    ]
+
+    const magePics = [
+        "https://i.pinimg.com/564x/d4/41/6a/d4416ae8f23844a9a72c318de9b203ab.jpg",
+        "https://i.pinimg.com/564x/0b/f2/86/0bf2868b0333324b917e7e108a848547.jpg",
+        "https://i.pinimg.com/564x/4c/63/cb/4c63cbb7003081b41f94e52095b1d52d.jpg"
+    ]
+
+    const monkPics = [
+        "https://i.pinimg.com/564x/60/91/53/609153d40649f1e91ee72b1af16288dc.jpg",
+        "https://i.pinimg.com/564x/03/c3/80/03c3802b2971c6a5dc58802a9b40ec18.jpg",
+        "https://i.pinimg.com/564x/36/59/2f/36592fd42f169c1a2bf1fffc6e497f04.jpg"
+    ]
+
+    const paladinPics = [
+        "https://i.pinimg.com/564x/cc/0c/98/cc0c981b743bea3a34b7688d3afe7628.jpg",
+        "https://i.pinimg.com/564x/b9/81/bb/b981bb4988b705123f6aebbeaba32d97.jpg",
+        "https://i.pinimg.com/564x/77/7a/e9/777ae97c6b44e0db61cbd07cf3ba4a10.jpg"
+    ]
+
     const handleSelectClass = (e, classname) => {
         setSelectedClass(classname);
         setSelectedPfp(0);
+    }
+
+    const handlePics = (num) => {
+
+        switch (selectedClass) {
+            case ("Warrior"):
+                return warriorPics[num - 1];
+            case ("Archer"):
+                return archerPics[num - 1];
+            case ("Mage"):
+                return magePics[num - 1];
+            case ("Monk"):
+                return monkPics[num - 1];
+            case ("Paladin"):
+                return paladinPics[num - 1];
+        }
     }
 
     const handleContinue = () => {
@@ -66,7 +112,7 @@ const CreateHero = (props) => {
                 money: stats.money,
 
                 class: selectedClass,
-                pfp: selectedPfp,
+                pfp: handlePics(selectedPfp),
                 religion: selectedReligion,
                 region: region,
                 city: city
@@ -88,12 +134,16 @@ const CreateHero = (props) => {
         switch (selectedClass) {
             case ("Warrior"):
                 classStats = stats.warrior;
+                break;
             case ("Archer"):
                 classStats = stats.archer;
+                break;
             case ("Mage"):
                 classStats = stats.mage;
+                break;
             case ("Monk"):
                 classStats = stats.monk;
+                break;
             case ("Paladin"):
                 classStats = stats.paladin;
         }
@@ -137,13 +187,13 @@ const CreateHero = (props) => {
                 <div className='choose-pfp-container'>
                     <h3>Choose a profile picture:</h3>
                     <div className='pfp-list'>
-                        <img src="https://i.pinimg.com/564x/0e/e6/05/0ee6058a98ee88e7c59f64ea4d9592a8.jpg" alt=""
+                        <img src={handlePics(1)} alt=""
                             onClick={() => {setSelectedPfp(1)}}
                             className={(selectedPfp === 1) ? "pfp-selected" : "pfp-unselected"}/>
-                        <img src="https://i.pinimg.com/564x/0e/e6/05/0ee6058a98ee88e7c59f64ea4d9592a8.jpg" alt=""
+                        <img src={handlePics(2)} alt=""
                              onClick={() => {setSelectedPfp(2)}}
                              className={(selectedPfp === 2) ? "pfp-selected" : "pfp-unselected"}/>
-                        <img src="https://i.pinimg.com/564x/0e/e6/05/0ee6058a98ee88e7c59f64ea4d9592a8.jpg" alt=""
+                        <img src={handlePics(3)} alt=""
                              onClick={() => {setSelectedPfp(3)}}
                              className={(selectedPfp === 3) ? "pfp-selected" : "pfp-unselected"}/>
                     </div>
