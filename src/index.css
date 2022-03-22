@@ -339,6 +339,18 @@ PROFILE
 MAP
  */
 
-.map img {
-    width: 60vh;
+.map-svg {
+    background-image: linear-gradient(to bottom, #71b4be, #7fddc5);
+    border: 10px solid #542b29;
+}
+
+.map-svg polygon {
+    fill: #297715;
+    stroke: black;
+    transition: fill 0.2s ease-in 100ms;
+}
+
+.map-svg polygon:hover {
+    fill: #234a0e;
+
 }

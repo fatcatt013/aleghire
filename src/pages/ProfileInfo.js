@@ -11,6 +11,9 @@ const ProfileInfo = () => {
             <div className='profile-info-paragraphs'>
                 <p>Level: 1</p>
                 <p>Experience: 0/100</p>
+                <p>Guild: None</p>
+                <p>Religion: Satanist</p>
+                <p>Location: Tulheim (Gormog)</p>
             </div>
             <div className='profile-info-stats'>
                 <p>Strength: 10</p>
