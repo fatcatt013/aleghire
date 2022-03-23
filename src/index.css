@@ -368,3 +368,103 @@ MAP
     fill: #234a0e;
 
 }
+
+/*
+FIGHTING CHAMBER
+ */
+
+.fighting-chamber {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, #c6742d, #f9c98e);
+}
+
+.fighting-chamber-contents {
+    width: 70vw;
+    height: 700px;
+    background-image: linear-gradient(to bottom right, #542b29, #b11b17);
+    border: 8px double black;
+    border-radius: 15px;
+}
+
+.fighting-display-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5rem;
+    height: 60%;
+}
+
+.fighting-user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+    border: 3px solid black;
+    background-color: #f9c98e;
+    border-radius: 15px;
+}
+
+.fighting-user div {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.fighting-user-hp {
+    border: 3px solid black;
+    background-color: #b11b17;
+}
+
+.fighting-log-window {
+    width: 35%;
+    border: 3px solid black;
+    background-color: #ffe8c9;
+}
+
+.fighting-user-image {
+    width: 100%;
+    height: 80%;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.fighting-option-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: 190px;
+}
+
+.fighting-buttons button{
+    height: 2.5rem;
+    font-size: 1rem;
+    background-color: #dec88f;
+    transition: background-color 0.4s ease-out 100ms;
+    width: 10rem;
+    border: 3px solid black;
+}
+
+.fighting-buttons button:hover {
+    background-color: #9f9163;
+}
+
+.create-hero-button {
+    width: 40%;
+    height: 2.5rem;
+    font-size: 1rem;
+    background-color: #dec88f;
+    transition: background-color 0.4s ease-out 100ms;
+    margin-left: 30%;
+    margin-top: 3rem;
+}
+
+.create-hero-button:hover {
+    background-color: #9f9163;
+}

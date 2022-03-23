@@ -14,6 +14,7 @@ import Settings from "./pages/Settings";
 import Register from "./pages/Register";
 import CreateHero from "./pages/CreateHero";
 import Loading from './components/Loading';
+import FightingChamber from './pages/FightingChamber';
 import Axios from "axios";
 
 
@@ -22,6 +23,7 @@ function App() {
     const [registered, setRegistered] = useState(false);
     const [createCharacter, setCreateCharacter] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [fighting, setFighting] = useState(true);
 
     async function handleAuth (newAcc, id, pwd) {
         //newAcc (boolean) = is creating a new account?
@@ -87,6 +89,12 @@ function App() {
         )
     }
 
+    if (fighting) {
+        return (
+            <FightingChamber/>
+        )
+    }
+
     if (!registered) {
 
         return (
@@ -105,6 +113,8 @@ function App() {
             }/>
         )
     }
+
+
 
 
     return (

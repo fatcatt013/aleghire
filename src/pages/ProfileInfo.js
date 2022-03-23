@@ -4,9 +4,6 @@ import Axios from "axios";
 
 const ProfileInfo = () => {
 
-
-
-
     /*
     Request for
 
@@ -35,7 +32,7 @@ const ProfileInfo = () => {
             <img src={sessionStorage.getItem("pfp")} alt="" className='profile-info-image'/>
             <div className='profile-info-paragraphs'>
                 <p>{"Level: " + sessionStorage.getItem("level")}</p>
-                <p>{"Experience: " + sessionStorage.getItem("exp") + "/100"}</p>
+                <p>{"Experience: " + sessionStorage.getItem("exp") + "/" + sessionStorage.getItem("level") * 100}</p>
                 <p>{"Class: " + sessionStorage.getItem("class")}</p>
                 <p>{"Guild: " + sessionStorage.getItem("guild")}</p>
                 <p>{"Religion: " + sessionStorage.getItem("religion")}</p>
