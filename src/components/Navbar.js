@@ -15,11 +15,11 @@ const Navbar = () => {
             <ul className='nav-ul'>
                 <li onClick={() => navigate('/profile')}>
                     <div className='nav-profile'>
-                        <img src="https://i.pinimg.com/564x/0e/e6/05/0ee6058a98ee88e7c59f64ea4d9592a8.jpg"
+                        <img src={sessionStorage.getItem("pfp")}
                              alt="" className='mini-pfp'/>
                              <div className='nav-profile-text'>
-                                 <span><MdPersonOutline/> Abbon</span>
-                                 <span><FaCoins/> 1000g</span>
+                                 <span><MdPersonOutline/> {sessionStorage.getItem("name")}</span>
+                                 <span><FaCoins/> {sessionStorage.getItem("money") + "g"}</span>
                              </div>
                     </div>
                 </li>
