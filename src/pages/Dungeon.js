@@ -7,18 +7,38 @@ const Dungeon = ({startFight}) => {
     }
 
     return (
-        <div>
-            <h1>DUNGEON</h1>
-            <div>
-                <h4>Monsters</h4>
-                <ul>
-                    <li onClick={() => chooseEnemy("1")}>Feral cat (Lv. 1)</li>
-                    <li onClick={() => chooseEnemy("2")}>White wolf (Lv. 3)</li>
-                    <li>Monster 3 (Lv. 5)</li>
-                    <li>Monster 4 (Lv. 10)</li>
-                    <li>Monster 5 (Lv. 15)</li>
-                    <li>Monster 6 (Lv. 20)</li>
-                </ul>
+        <div className="dungeon-container">
+            <div className='dungeon-contents'>
+                <div className='mobs-container'>
+                    <h2>Mobs</h2>
+                    <div className="mob-node">
+                        <img src="https://i.pinimg.com/564x/a9/8f/af/a98fafefa07cbdf6fa4477f5bcce001e.jpg" alt=""/>
+                        <div className="mob-info">
+                            <div>Feral cat</div>
+                            <div>Level: 1</div>
+                            <button onClick={() => chooseEnemy("1")}>Fight</button>
+                        </div>
+                    </div>
+                    <div className="mob-node">
+                        <img src="https://i.pinimg.com/564x/63/75/01/6375015815db9fcd20b4bb20e2005c83.jpg" alt=""/>
+                        <div className="mob-info">
+                            <div>White wolf</div>
+                            <div>Level: 3</div>
+                            <button onClick={() => chooseEnemy("2")}>Fight</button>
+                        </div>
+                    </div>
+                </div>
+                <div className='bosses-container'>
+                    <h2>Bosses</h2>
+                    <div className='boss-node'>
+                        <img src="https://i.pinimg.com/564x/63/75/01/6375015815db9fcd20b4bb20e2005c83.jpg" alt=""/>
+                        <div className="mob-info">
+                            <div>Name: Mob 1</div>
+                            <div>Level: 1</div>
+                            <button>Fight</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )

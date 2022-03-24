@@ -473,6 +473,7 @@ FIGHTING CHAMBER
     margin-top: 3rem;
 }
 
+
 .create-hero-button:hover {
     background-color: #9f9163;
 }
@@ -489,4 +490,69 @@ FIGHTING CHAMBER
     background-image: linear-gradient(to bottom right, #542b29, #b11b17);
     border: 8px double black;
     border-radius: 15px;
+}
+
+/*
+DUNGEON
+ */
+
+.dungeon-container{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.dungeon-container h2 {
+    text-align: center;
+}
+
+.dungeon-contents {
+    display: flex;
+    justify-content: space-evenly;
+    background-image: linear-gradient(to bottom right, #542b29, #b11b17);
+    border: 8px double black;
+    border-radius: 15px;
+    min-width: 800px;
+    margin-top: 6rem;
+    margin-left: 6rem;
+    color: #dec88f;
+    overflow: scroll;
+    min-height: 300px;
+    height: 80%;
+}
+
+.dungeon-contents img {
+    width: 5rem;
+    height: 6.5rem;
+    border-radius: 10px;
+    border: 2px solid #f2dca0;
+}
+
+.mob-container, .boss-container {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+.mob-node, .boss-node {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+.mob-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+}
+
+.mob-info button {
+    margin-top: 40%;
+    background-color: #dec88f;
+    transition: background-color 0.4s ease-out 100ms;
+    padding: 0.3rem 1rem;
+}
+
+.mob-info button:hover {
+    background-color: #9f9163;
 }
