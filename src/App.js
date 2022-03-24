@@ -23,7 +23,8 @@ function App() {
     const [registered, setRegistered] = useState(false);
     const [createCharacter, setCreateCharacter] = useState(false);
     const [loading, setLoading] = useState(false);
-    const [fighting, setFighting] = useState(true);
+    const [fighting, setFighting] = useState(false);
+    const [fightingEnemy, setFightingEnemy] = useState(null);
 
     async function handleAuth (newAcc, id, pwd) {
         //newAcc (boolean) = is creating a new account?
@@ -82,8 +83,12 @@ function App() {
         })
     }
 
+    const startFight = (enemy) => {
+        setFightingEnemy(enemy);
+        setFighting(true);
+    }
+
     if (loading) {
-        console.log("App: if (loading) triggered");
         return (
             <Loading quit={setLoading}/>
         )
@@ -91,7 +96,7 @@ function App() {
 
     if (fighting) {
         return (
-            <FightingChamber/>
+            <FightingChamber victim={fightingEnemy} stopFight={setFighting}/>
         )
     }
 
@@ -126,8 +131,8 @@ function App() {
                     <Route path='/map' element={<Map/>} />
                     <Route path='/talent-tree' element={<TalentTree/>} />
                     <Route path='/city' element={<City/>} />
-                    <Route path='/arena' element={<Arena/>} />
-                    <Route path='/dungeon' element={<Dungeon/>} />
+                    <Route path='/arena' element={<Arena startFight={startFight}/>} />
+                    <Route path='/dungeon' element={<Dungeon startFight={startFight}/>} />
                     <Route path='/guild' element={<Guild/>} />
                     <Route path='/religion' element={<Religion/>} />
                     <Route path='/mailbox' element={<Mailbox/>} />

@@ -1,14 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-const FightingLogWindow = () => {
+const FightingLogWindow = ({logs}) => {
 
     return (
         <div className='fighting-log-window'>
-            <div>some text</div>
-            <div>some text</div>
-            <div>some text</div>
-            <div>some text</div>
-            <div>some text</div>
+            <h4>COMBAT LOG</h4>
+            {logs.map(log => {
+                return <div key={Math.floor(Math.random() * 5000).toString()}>{log}</div>
+            })}
         </div>
     )
 }

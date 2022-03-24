@@ -57,6 +57,9 @@ const CreateHero = (props) => {
                 return monkPics[num - 1];
             case ("Paladin"):
                 return paladinPics[num - 1];
+
+            default:
+                return warriorPics[num - 1];
         }
     }
 
@@ -114,6 +117,7 @@ const CreateHero = (props) => {
                 class: selectedClass,
                 pfp: handlePics(selectedPfp),
                 religion: selectedReligion,
+                religionIndex: stats.religion,
                 region: region,
                 city: city
 

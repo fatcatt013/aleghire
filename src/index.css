@@ -424,6 +424,14 @@ FIGHTING CHAMBER
     width: 35%;
     border: 3px solid black;
     background-color: #ffe8c9;
+    overflow: scroll;
+    font-size: 0.8rem;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.fighting-log-window h4 {
+    margin: 0;
 }
 
 .fighting-user-image {
@@ -467,4 +475,18 @@ FIGHTING CHAMBER
 
 .create-hero-button:hover {
     background-color: #9f9163;
+}
+
+.win-window {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    color: #dec88f;
+    padding: 4rem;
+    width: 40vw;
+    min-height: 300px;
+    background-image: linear-gradient(to bottom right, #542b29, #b11b17);
+    border: 8px double black;
+    border-radius: 15px;
 }

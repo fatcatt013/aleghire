@@ -14,9 +14,6 @@ const Register = (props) => {
         e.preventDefault();
         let err = false;
 
-        console.log("Registering with: \nemail=" + email + "\nusername=" + username +
-            "\npwd=" + pwd + "\npwd2=" + confirmPwd);
-
         if (!(pwd === confirmPwd)) {
             alert("The passwords must match.");
             return
@@ -26,7 +23,6 @@ const Register = (props) => {
             alert("All input fields must be filled.");
             return;
         }
-        console.log("Passwords are matching.");
 
         Axios.post('http://localhost:3001/check-register',
             {
@@ -96,7 +92,6 @@ const Register = (props) => {
             return;
         }
 
-        console.log("Logging in with: " + username + "\n" + pwd);
         Axios.post("http://localhost:3001/login",
             {
                 username: username,
